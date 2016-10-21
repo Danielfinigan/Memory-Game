@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class SceneController : MonoBehaviour {
@@ -40,6 +41,11 @@ public class SceneController : MonoBehaviour {
             }
         }
 	}
+
+    public void Restart()
+    {
+        SceneManager.LoadScene("Lv1");
+    }
 
     public bool canReveal
     {
