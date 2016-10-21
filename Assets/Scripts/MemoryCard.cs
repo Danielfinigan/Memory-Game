@@ -17,19 +17,18 @@ public class MemoryCard : MonoBehaviour {
         _id = id;
         GetComponent<SpriteRenderer>().sprite = image;
     }
-    // Use this for initialization
-    void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 
     public void OnMouseDown()
     {
-        if (cardBack.activeSelf)
+        if (cardBack.activeSelf && controller.canReveal)
+        {
+            controller.CardRevealed(this);
             cardBack.SetActive(false);
+        }
+    }
+
+    public void Unreveal()
+    {
+        cardBack.SetActive(true);
     }
 }

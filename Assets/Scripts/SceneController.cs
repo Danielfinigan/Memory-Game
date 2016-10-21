@@ -4,10 +4,15 @@ using System.Collections;
 public class SceneController : MonoBehaviour {
     [SerializeField]    private MemoryCard originalCard;
     [SerializeField]    private Sprite[] images;
+    [SerializeField]    private TextMesh scoreLabel;
     public const int gridRows = 2;
     public const int gridCols = 4;
     public const float offsetX = 2f;
     public const float offsetY = 2.5f;
+
+    private MemoryCard _firstRevealed;
+    private MemoryCard _secondRevealed;
+    private int _score = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -35,6 +40,42 @@ public class SceneController : MonoBehaviour {
             }
         }
 	}
+
+    public bool canReveal
+    {
+        get { return _secondRevealed == null;}
+    }
+
+    public void CardRevealed(MemoryCard card)
+    {
+        if (_firstRevealed == null)
+            _firstRevealed = card;
+        else
+        {
+            _secondRevealed = card;
+            StartCoroutine(CheckMatch());
+        }
+    }
+
+    private IEnumerator CheckMatch()
+    {
+        if (_firstRevealed.id == _secondRevealed.id)
+        {
+            _score++;
+            scoreLabel.text = "Score: " + _score;            
+        }
+        else
+        {
+            yield return new WaitForSeconds(.5f);
+
+            _firstRevealed.Unreveal();
+            _secondRevealed.Unreveal();
+        }
+
+        _firstRevealed = null;
+        _secondRevealed = null; 
+
+    }
 
     private int[] ShuffleArray(int[] numbers)
     {

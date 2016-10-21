@@ -90,12 +90,11 @@ NavMeshSettings:
     cellSize: 0.16666667
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &2104544 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114000010425311602, guid: e562a9368c727894dbb10297cf1c0ba6,
+--- !u!1 &70420618 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000014031270860, guid: e562a9368c727894dbb10297cf1c0ba6,
     type: 2}
   m_PrefabInternal: {fileID: 197991554}
-  m_Script: {fileID: 11500000, guid: 0e62cfb50ced3ca44846eddb148ddf00, type: 3}
 --- !u!1001 &197991554
 Prefab:
   m_ObjectHideFlags: 0
@@ -136,21 +135,10 @@ Prefab:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1000013268602270, guid: e562a9368c727894dbb10297cf1c0ba6, type: 2}
-      propertyPath: m_IsActive
-      value: 1
+      propertyPath: m_Name
+      value: card_front
       objectReference: {fileID: 0}
-    - target: {fileID: 114000012166048898, guid: e562a9368c727894dbb10297cf1c0ba6,
-        type: 2}
-      propertyPath: controller
-      value: 
-      objectReference: {fileID: 1646351981}
-    - target: {fileID: 114000010425311602, guid: e562a9368c727894dbb10297cf1c0ba6,
-        type: 2}
-      propertyPath: controller
-      value: 
-      objectReference: {fileID: 1646351981}
-    m_RemovedComponents:
-    - {fileID: 114000012166048898, guid: e562a9368c727894dbb10297cf1c0ba6, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e562a9368c727894dbb10297cf1c0ba6, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &227440102
@@ -302,6 +290,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
+--- !u!1 &1068935901 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1000013268602270, guid: e562a9368c727894dbb10297cf1c0ba6,
+    type: 2}
+  m_PrefabInternal: {fileID: 197991554}
+--- !u!114 &1068935902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1068935901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e62cfb50ced3ca44846eddb148ddf00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardBack: {fileID: 70420618}
+  controller: {fileID: 1646351981}
 --- !u!1 &1646351980
 GameObject:
   m_ObjectHideFlags: 0
@@ -329,7 +335,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bd2ab99d5acabd4890671b89b07be58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  originalCard: {fileID: 2104544}
+  originalCard: {fileID: 1068935902}
   images:
   - {fileID: 21300000, guid: 35ef60eafbb78d54da33b0d65b54a2d2, type: 3}
   - {fileID: 21300000, guid: c0d25d3a735cda843a96aadc8fe79a21, type: 3}
